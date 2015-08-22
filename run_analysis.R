@@ -1,5 +1,5 @@
 
-#set working directory, change this path as neccessary to follow your working directory
+#First of all, set working directory, change this path as neccessary to follow your working directory
 setwd("C:/Rtraining1/R_MDec/Module3")
 
 
@@ -56,7 +56,6 @@ names(data_y) <- "activity"
 
 
 
-
 #STEP 4: Appropriately labels the data set with descriptive variable names
 data_overall <- cbind(subj, data_y, data_x)
 colnames(data_overall) <- c(c("volunteer", "activity"), features[,2])
@@ -66,12 +65,10 @@ data_overall <- subset(data_overall, select=selected_col)
 
 
 
-
 #STEP 5:From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 tidy_data <- aggregate(. ~ volunteer+activity, data=data_overall, FUN=mean)
 write.table(tidy_data, file = file.path(data_path, "tidy_data.txt"), row.name=FALSE)
 #STEP 5 End
-
 
 
 
